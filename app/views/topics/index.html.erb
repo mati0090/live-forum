@@ -1,25 +1,11 @@
-<h1>Listing topics</h1>
+<p>Topics</p>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div id="topics"></div>
 
-<% @topics.each do |topic| %>
-  <tr>
-    <td><%= topic.title %></td>
-    <td><%= topic.body %></td>
-    <td><%= link_to 'Show', topic %></td>
-    <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
-    <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Topic', new_topic_path %>
+<script type="text/javascript">
+    $(function() {
+        // Blog is the app name
+        window.router = new LiveForum.Routers.TopicsRouter({topics: <%= @topics.to_json.html_safe -%>});
+        Backbone.history.start();
+    });
+</script>

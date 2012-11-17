@@ -13,3 +13,16 @@
 
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Back', topics_path %>
+
+<p>
+  <b>Answers:</b>
+  <% @topic.posts.each do |post| %>
+    <%= render :partial => 'posts/show_post', :locals => {:post => post} %>
+  <% end %>
+</p>
+
+
+<p>
+  <b>Add answer:</b>
+  <%= render :partial => 'posts/form' %>
+</p>

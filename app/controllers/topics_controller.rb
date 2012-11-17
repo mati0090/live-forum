@@ -13,7 +13,8 @@ class TopicsController < ApplicationController
   # GET /topics/1
   # GET /topics/1.json
   def show
-    @topic = Topic.find(params[:id])
+    @topic  = Topic.find(params[:id])
+    @post   = Post.new
 
     respond_to do |format|
       format.html # show.html.erb

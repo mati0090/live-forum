@@ -4,11 +4,10 @@ class LiveForum.Routers.TopicsRouter extends Backbone.Router
     @topics.reset options.topics
 
   routes:
-    "new"      : "newTopic"
-    "index"    : "index"
-    ":id/edit" : "edit"
-    ":id"      : "show"
-    ".*"        : "index"
+    "topics/new"      : "newTopic"
+    "topics/index"    : "index"
+    "topics/:id"      : "show"
+    ".*"              : "index"
 
   newTopic: ->
     @view = new LiveForum.Views.Topics.NewView(collection: @topics)
@@ -24,8 +23,3 @@ class LiveForum.Routers.TopicsRouter extends Backbone.Router
     @view = new LiveForum.Views.Topics.ShowView(model: topic)
     $("#topics").html(@view.render().el)
 
-  edit: (id) ->
-    topic = @topics.get(id)
-
-    @view = new LiveForum.Views.Topics.EditView(model: topic)
-    $("#topics").html(@view.render().el)

@@ -23,7 +23,7 @@ class LiveForum.Views.Topics.NewView extends Backbone.View
     @collection.create(@model.toJSON(),
       success: (topic) =>
         @model = topic
-        window.location.hash = "/#{@model.id}"
+        window.location.hash = "/topics/#{@model.id}"
 
       error: (topic, jqXHR) =>
         @model.set({errors: $.parseJSON(jqXHR.responseText)})

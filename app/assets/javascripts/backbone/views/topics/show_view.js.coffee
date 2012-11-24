@@ -13,14 +13,15 @@ class LiveForum.Views.Topics.ShowView extends Backbone.View
     return this
 
   events: {
-    'click input[type=submit]': 'on_new_post_submit'
+    'click button[id=new_post_submit]': 'on_new_post_submit'
   }
 
   renderPost: (post) ->
     post_view = new LiveForum.Views.Posts.PostView({model: post})
-    @$("tbody").append($(post_view.render().el))
+    @$("#posts").append($(post_view.render().el))
 
   on_new_post_submit: (e) ->
+    e.preventDefault()
     new_post = new LiveForum.Models.Post({body: this.$("#new_post_body").val(), topic: this.model})
 
     that = @

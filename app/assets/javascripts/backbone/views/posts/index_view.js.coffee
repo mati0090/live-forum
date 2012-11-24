@@ -11,7 +11,7 @@ class LiveForum.Views.Posts.IndexView extends Backbone.View
 
   addOne: (post) =>
     view = new LiveForum.Views.Posts.PostView({model : post})
-    @$("tbody").append(view.render().el)
+    $(@el).append(view.render().el)
 
   render: =>
     $(@el).html(@template(posts: @options.posts.toJSON() ))

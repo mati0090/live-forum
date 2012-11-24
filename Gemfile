@@ -6,6 +6,8 @@ gem 'sqlite3'
 gem 'jquery-rails'
 gem "rails-backbone"
 gem "quiet_assets"
+gem "less-rails"
+gem "twitter-bootstrap-rails"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

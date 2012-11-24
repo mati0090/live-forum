@@ -16,9 +16,10 @@ class LiveForum.Models.Topic extends Backbone.RelationalModel
 
   toJSON: ->
     {
-      id: @get('id')
-      title: @get('title')
-      body: @get('body')
+      id:         @get('id')
+      title:      @get('title')
+      body:       @get('body')
+      created_at: @get('created_at')
     }
 
   defaults:

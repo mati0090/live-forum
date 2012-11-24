@@ -7,8 +7,9 @@ class LiveForum.Models.Post extends Backbone.RelationalModel
 
   toJSON: ->
     {
-      body: @get('body')
-      topic_id: @get('topic_id')
+      body:       @get('body')
+      topic_id:   @get('topic_id')
+      created_at: @get('created_at')
     }
 
   defaults:

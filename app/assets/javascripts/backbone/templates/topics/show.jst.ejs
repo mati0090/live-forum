@@ -1,19 +1,18 @@
-<p>
-  <b>Title:</b>
+<h2>
   <%= title %>
-</p>
+</h2>
 
-<p>
-  <b>Body:</b>
-  <%= body %>
+<p class="lead">
+    <%= body %>
+    </br>
+    <small><%= created_at %></small>
 </p>
-
-<p>Posts</p>
 
 <div id="posts"></div>
 
-<p>Add post</p>
-<input type="text" id="new_post_body">
-<input type="submit" id="new_post_submit" value="Add post">
-
-<a href="#/index">Back</a>
+<form>
+    <fieldset>
+        <textarea rows=3 id="new_post_body"></textarea>
+        <button id="new_post_submit" class="btn btn-primary">Add post</button>
+    </fieldset>
+</form>

@@ -2,11 +2,11 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
-    @topics = Topic.all
+    @topics = Topic.includes(:posts).all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @topics }
+      format.json { render json: @topics.as_json(:include => [:posts]) }
     end
   end
 

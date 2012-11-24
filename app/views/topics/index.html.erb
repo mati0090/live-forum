@@ -1,11 +1,9 @@
-<p>Topics</p>
-
 <div id="topics"></div>
 
 <script type="text/javascript">
     $(function() {
         // Blog is the app name
-        window.router = new LiveForum.Routers.TopicsRouter({topics: <%= @topics.to_json.html_safe -%>});
+        window.router = new LiveForum.Routers.TopicsRouter({topics: <%= @topics.to_json(:include => [:posts]).html_safe -%>});
         Backbone.history.start();
     });
 </script>

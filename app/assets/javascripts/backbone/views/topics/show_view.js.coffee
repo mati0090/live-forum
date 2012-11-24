@@ -16,10 +16,6 @@ class LiveForum.Views.Topics.ShowView extends Backbone.View
     'click button[id=new_post_submit]': 'on_new_post_submit'
   }
 
-  renderPost: (post) ->
-    post_view = new LiveForum.Views.Posts.PostView({model: post})
-    @$("#posts").append($(post_view.render().el))
-
   on_new_post_submit: (e) ->
     e.preventDefault()
     new_post = new LiveForum.Models.Post({body: this.$("#new_post_body").val(), topic: this.model})
@@ -29,9 +25,13 @@ class LiveForum.Views.Topics.ShowView extends Backbone.View
       success: ->
         that.model.get('posts').add new_post
 
+  renderPost: (post) ->
+    post_view = new LiveForum.Views.Posts.PostView({model: post})
+    @$("#posts").append($(post_view.render().el))
+
   renderPosts: (posts) ->
-    @view = new LiveForum.Views.Posts.IndexView({posts: posts, el: @$("#posts")})
-    @view.render()
+    that = @
+    posts.each(@renderPost)
 
 
 

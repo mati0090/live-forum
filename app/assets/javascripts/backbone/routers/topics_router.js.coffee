@@ -9,10 +9,6 @@ class LiveForum.Routers.TopicsRouter extends Backbone.Router
     "topics/:id"      : "show"
     ".*"              : "index"
 
-  newTopic: ->
-    @view = new LiveForum.Views.Topics.NewView(collection: @topics)
-    $("#topics").html(@view.render().el)
-
   index: ->
     @view = new LiveForum.Views.Topics.IndexView(topics: @topics)
     $("#topics").html(@view.render().el)

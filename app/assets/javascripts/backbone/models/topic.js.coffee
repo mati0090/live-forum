@@ -20,7 +20,7 @@ class LiveForum.Models.Topic extends Backbone.RelationalModel
       title:      @get('title')
       body:       @get('body')
       created_at: @get('created_at')
-      posts:      @get('posts')
+      posts:      @get('posts') if !@.isNew()
     }
 
   defaults:

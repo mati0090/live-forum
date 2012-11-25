@@ -6,6 +6,9 @@ class LiveForum.Views.Topics.IndexView extends Backbone.View
   initialize: () ->
     @options.topics.bind('reset', @addAll)
 
+  events:
+    "click #new-topic-button" : "newTopic"
+
   addAll: () =>
     @options.topics.each(@addOne)
 
@@ -16,5 +19,10 @@ class LiveForum.Views.Topics.IndexView extends Backbone.View
   render: =>
     $(@el).html(@template(topics: @options.topics.toJSON() ))
     @addAll()
-
     return this
+
+  newTopic: (e) ->
+    e.preventDefault()
+    @view = new LiveForum.Views.Topics.NewView(collection: @options.topics)
+    $("#topics").append(@view.render().el)
+

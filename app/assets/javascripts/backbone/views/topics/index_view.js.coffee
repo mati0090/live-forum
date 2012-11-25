@@ -11,7 +11,7 @@ class LiveForum.Views.Topics.IndexView extends Backbone.View
 
   addOne: (topic) =>
     view = new LiveForum.Views.Topics.TopicView({model : topic})
-    @$("tbody").append(view.render().el)
+    @$("#topics-index-table").append(view.render().el)
 
   render: =>
     $(@el).html(@template(topics: @options.topics.toJSON() ))
